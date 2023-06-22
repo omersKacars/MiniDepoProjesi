@@ -1,0 +1,128 @@
+/*
+     * basit bir depo projesi
+     *
+     * Calisan bir fabrikada uygulanan bir sistem olan depo uygulamasidir.
+     *
+
+
+
+     * 1-) burada oncelikle urunun tanimlamasi  yapilir.  //pojoUrun
+      id*-*-
+      urunIsmi*     /MAP<pojoUrun
+      uretici*id,
+      miktar
+      birim *
+      raf (6 adet fields mevcut)
+     *
+     * 2-) methodlar olusturacagiz.
+     *      urunTanimlama   ==>  urunun ismi, ureticisi ve birimi girilecek. id  alınacak.  //MAP<id,pojoUrun>   RAF= "-" ve Miktar=0
+
+     ==> urun taniomlamada  urunIsmi*  uretici*   birim *    (raf , miktar defould gozukecek)
+
+     MAP<id.listemiz>
+
+
+
+     *      urunListele     ==> tanimlanan urunler listelenecek. urunun adeti ve raf numarasi tanimlama yapilmadiysa default deger gorunsun.
+     for each ile
+
+
+
+     ///  printf(%10)
+
+     // olusturduguuz yapiya gore sout edicez
+     // raf her defasinda goruntulenecek
+
+
+
+     * urunGirisi      ==> giris yapmak istedigimiz urnunun id numarasi ile girecegiz. (miktar girisi yapacagiz)
+      for eac ile hasmap listesini tek tek cagircaz
+
+     varolan degerleri guncelleme
+
+     Tanimlanmis urunu depoya giris yapmak
+
+     forla mapten id bulunacak
+     bulunan iddeki urun miktari degistirilecek.
+     get / set kullanilacak.
+
+
+
+
+     *
+     *      urunuRafaKoy    ==> listeden urunu sececegiz ve id numarasina gore urunu rafa koyacagiz.
+
+     (urunun idsi ile sececegiz ve ya yeni rafa atayacagiz ya da yerini degistirecegiz.)
+
+     // hashmap update raf(void)hasmap  key , value
+
+
+
+
+     }
+
+
+
+     *
+     *      urunCikisi      ==> listeden urunu sececegiz(id) ve urunun cikis yapcagiz(map remove sadece miktar).
+                                burada urun listesinden sadece miktarda degisiklik yapilacak.
+     *                          urun adedi 0dan az olamaz.
+                                0 olunca urun tanimlamasi silinmesin.
+                                sadece miktari 0 olsun.  ///exception (try catch)
+
+
+     *      ==> yaptigimiz tum degisiklikler listede de gorunsun.
+     *
+     *
+     *          id      ismi    ureticisi   miktari     birimi      raf
+     *      ---------------------------------------------------------------
+     *      or: 1000     un     hekimoglu   0           cuval       null
+     *
+     *      urunGirisi      ==> id:1000  urun girisi :5
+     *      urunListele     ==>
+     *
+     *          id      ismi    ureticisi   miktari     birimi      raf
+     *      ---------------------------------------------------------------
+     *      or: 1000     un     hekimoglu   5           cuval       null
+     *
+     *      urunuRafaKoy    ==> id: 1000 raf : raf1
+     *      urunListele     ==>
+     *          id      ismi    ureticisi   miktari     birimi      raf
+     *      ---------------------------------------------------------------
+     *      or: 1000     un     hekimoglu   5           cuval       raf1
+     *
+     *      urunCikisi      ==> id 1000: urun cikis : 3 (kalan 2 cuval un)
+     *      urunListele     ==>
+     *          id      ismi    ureticisi   miktari     birimi      raf
+     *      ---------------------------------------------------------------
+     *      or: 1000     un     hekimoglu   2           cuval       raf1
+     *
+     *
+     */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
