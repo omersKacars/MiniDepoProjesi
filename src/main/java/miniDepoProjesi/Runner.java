@@ -1,5 +1,6 @@
 package miniDepoProjesi;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Runner {
@@ -25,7 +26,9 @@ static{
         boolean a = true;
         do {
             anaMenu();
-            int sec = input.nextInt();
+
+               int sec = service.intHataliGiris();
+
 
             switch (sec) {
                 case 1:
@@ -48,7 +51,7 @@ static{
                     a = false;
                     break;
                 default:
-                    //yanlis giris
+                    System.out.println("Uygun Bir deger giriniz..");
 
             }
         } while (a);

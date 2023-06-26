@@ -11,8 +11,8 @@ public class Urun {
    private String birim;
    private String raf;
 
-    public Urun(String id, String urunIsmi, String uretici, double miktar, String birim, String raf) {
-        this.id = id;
+    public Urun(String urunIsmi, String uretici, double miktar, String birim, String raf) {
+
         this.urunIsmi = urunIsmi;
         this.uretici = uretici;
         this.miktar = miktar;
@@ -76,7 +76,6 @@ public class Urun {
     @Override
     public String toString() {
         return "Urun{" +
-                "id='" + id + '\'' +
                 ", urunIsmi='" + urunIsmi + '\'' +
                 ", uretici='" + uretici + '\'' +
                 ", miktar=" + miktar +
