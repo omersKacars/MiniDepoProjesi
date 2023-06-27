@@ -5,35 +5,9 @@ import java.util.Scanner;
 
 public class Runner {
 
-
-
-
-
-
         static {
-            System.out.println("\u001B[33m\n*******************************************\u001B[0m");
-            System.out.printf("\u001B[36m*"); // Mavi renk
-            System.out.printf("\u001B[31m*"); // Kırmızı renk
-            System.out.printf("\u001B[33m*"); // Sarı renk
-            System.out.printf("\u001B[32m*"); // Yeşil renk
-            System.out.printf("\u001B[35m*"); // Mor renk
-            System.out.printf("\u001B[34m*"); // Mavi renk
-            System.out.printf("\u001B[37m*"); // Beyaz renk
-            System.out.printf("\u001B[0m"); // Rengi sıfırla
-
-            System.out.print("\u001B[33m\t☺\tDEPOYA HOSGELDINIZ\t☺\t\u001B[0m");
-
-            System.out.printf("\u001B[32m*"); // Yeşil renk
-            System.out.printf("\u001B[35m*"); // Mor renk
-            System.out.printf("\u001B[36m*"); // Mavi renk
-            System.out.printf("\u001B[34m*"); // Mavi renk
-            System.out.printf("\u001B[33m*"); // Sarı renk
-            System.out.printf("\u001B[31m*"); // Kırmızı renk
-            System.out.printf("\u001B[37m*"); // Beyaz renk
-            System.out.printf("\u001B[0m"); // Rengi sıfırla
-
-            System.out.println("\u001B[33m\n*******************************************\u001B[0m");
-
+           Service service =new Service();
+           service.mesage("DEPOYA HOSGELDINIZ");
 
     }
 
@@ -57,7 +31,7 @@ public class Runner {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Service service = new Service();
 
@@ -86,8 +60,7 @@ public class Runner {
                     service.urunCikisiYap();
                     break;
                 case 6:
-                    //cikis
-                    a = false;
+                    a =service.cikis();
                     break;
                 default:
                     System.out.println("Uygun Bir deger giriniz..");
