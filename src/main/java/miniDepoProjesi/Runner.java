@@ -5,15 +5,54 @@ import java.util.Scanner;
 
 public class Runner {
 
-static{
-    System.out.println("**********************************\n\t\tDEPOYA HOSGELDINIZ\t\t\t\n**********************************");
-}
+
+
+
+
+
+        static {
+            System.out.println("\u001B[33m\n*******************************************\u001B[0m");
+            System.out.printf("\u001B[36m*"); // Mavi renk
+            System.out.printf("\u001B[31m*"); // Kırmızı renk
+            System.out.printf("\u001B[33m*"); // Sarı renk
+            System.out.printf("\u001B[32m*"); // Yeşil renk
+            System.out.printf("\u001B[35m*"); // Mor renk
+            System.out.printf("\u001B[34m*"); // Mavi renk
+            System.out.printf("\u001B[37m*"); // Beyaz renk
+            System.out.printf("\u001B[0m"); // Rengi sıfırla
+
+            System.out.print("\u001B[33m\t☺\tDEPOYA HOSGELDINIZ\t☺\t\u001B[0m");
+
+            System.out.printf("\u001B[32m*"); // Yeşil renk
+            System.out.printf("\u001B[35m*"); // Mor renk
+            System.out.printf("\u001B[36m*"); // Mavi renk
+            System.out.printf("\u001B[34m*"); // Mavi renk
+            System.out.printf("\u001B[33m*"); // Sarı renk
+            System.out.printf("\u001B[31m*"); // Kırmızı renk
+            System.out.printf("\u001B[37m*"); // Beyaz renk
+            System.out.printf("\u001B[0m"); // Rengi sıfırla
+
+            System.out.println("\u001B[33m\n*******************************************\u001B[0m");
+
+
+    }
 
     public static void anaMenu() {
 
-        System.out.println("\n Lutfen yapmak istediginiz islemi secin\n" +
-                "\t1. Urun Tanimla\n \t2. Urun Listele \n\t3. Urun Giris" +
-                "\n\t4. Urun Rafa Koy\n\t5. Urun Cikisi Yap\n\t6. Cikis  ");
+        System.out.printf("\n \u001B[36mLutfen yapmak istediginiz islemi secin\u001B[0m\n" +
+                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
+                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
+                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
+                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
+                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
+                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n",
+                "1.", "Urun Tanimla",
+                "2.", "Urun Listele",
+                "3.", "Urun Giris",
+                "4.", "Urun Rafa Koy",
+                "5.", "Urun Cikisi Yap",
+                "6.", "Cikis");
+
 
     }
 
@@ -27,7 +66,7 @@ static{
         do {
             anaMenu();
 
-               int sec = service.intHataliGiris();
+            int sec = service.intHataliGiris();
 
 
             switch (sec) {
