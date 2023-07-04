@@ -1,13 +1,12 @@
 package miniDepoProjesi;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Runner {
 
         static {
            Service service =new Service();
-           service.mesage("DEPOYA HOSGELDINIZ");
+           service.message("DEPOYA HOSGELDINIZ");
 
     }
 

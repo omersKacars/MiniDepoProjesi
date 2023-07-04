@@ -62,7 +62,6 @@ public class Service extends Urun {
         return ayniMi;
     }
 
-
     public void urunListele() {
         System.out.println("-------------------------------------------------------------------------------------------------------");
         System.out.printf(ANSI_BLUE + "| %-15s | %-20s | %-15s | %-15s | %-15s | %-15s %n" + ANSI_RESET, "ID NO", "URUN ISMI", "URETICI FIRMA", "URUN BIRIM", "MIKTAR", "RAF");
@@ -74,7 +73,6 @@ public class Service extends Urun {
                     w.getKey(), ANSI_GREEN, urun.getUrunIsmi(), ANSI_RESET, ANSI_GREEN, urun.getUretici(), ANSI_RESET, ANSI_GREEN, urun.getBirim(), ANSI_RESET, ANSI_RED, urun.getMiktar(), ANSI_RESET, ANSI_GREEN, urun.getRaf(), ANSI_RESET);
         }
     }
-
 
     public void urunGir() {
         urunListele();
@@ -101,8 +99,8 @@ public class Service extends Urun {
 
     }
 
-
     public void urunuRafaKoy() throws InterruptedException {
+
         urunListele();
         System.out.println("Lutfen rafa yerlestirmek istediginiz urunun ID'sini giriniz");
         String id = input.nextLine().trim();
@@ -164,7 +162,7 @@ public class Service extends Urun {
         boolean cikis;
 
 
-        mesage("   Guncel liste   ");
+        message("   Guncel liste   ");
 
 
         urunListele();
@@ -208,7 +206,6 @@ public class Service extends Urun {
             e.printStackTrace();
         }
     }
-
 
     public int intHataliGiris() {
         boolean falseGir = false;
@@ -271,7 +268,7 @@ public class Service extends Urun {
 
     }
 
-    public void mesage(String str) {
+    public void message(String str) {
         System.out.println("\u001B[33m\n*******************************************\u001B[0m");
         System.out.printf("\u001B[36m*"); // Mavi renk
         System.out.printf("\u001B[31m*"); // Kırmızı renk
