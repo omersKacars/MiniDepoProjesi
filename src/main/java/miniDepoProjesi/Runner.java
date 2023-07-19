@@ -4,33 +4,39 @@ import java.util.Scanner;
 
 public class Runner {
 
-        static {
-           Service service =new Service();
-           service.message("DEPOYA HOSGELDINIZ");
+    static {
+        Service service =new Service();
+        service.message("DEPOYA HOSGELDINIZ");
 
     }
 
     public static void anaMenu() {
 
-        System.out.printf("\n \u001B[36mLutfen yapmak istediginiz islemi secin\u001B[0m\n" +
-                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
-                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
-                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
-                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
-                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n" +
-                        "\t\u001B[32m%-2s\u001B[0m \u001B[35m%-18s\u001B[0m\n",
-                "1.", "Urun Tanimla",
-                "2.", "Urun Listele",
-                "3.", "Urun Giris",
-                "4.", "Urun Rafa Koy",
-                "5.", "Urun Cikisi Yap",
-                "6.", "Cikis");
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_YELLOW = "\u001B[33m";
+        String ANSI_PURPLE = "\u001B[35m";
 
-
+        System.out.println(ANSI_PURPLE + "Lutfen yapmak istediginiz islemi secin" + ANSI_RESET);
+        System.out.println(ANSI_YELLOW + "╔════════════════════╗"+"╔════════════════════╗");
+        System.out.println("║" + ANSI_PURPLE + "\t1 URUN TANIMLAMA " + ANSI_YELLOW + "║" +"║"+
+                ANSI_PURPLE + "\t2   URUN LISTELE " + ANSI_YELLOW + "  ║");
+        System.out.println("╚════════════════════╝" + "╚════════════════════╝");
+        System.out.println(ANSI_YELLOW + "╔════════════════════╗"+"╔════════════════════╗");
+        System.out.println("║" + ANSI_PURPLE + "\t3 URUN GIRIS     " + ANSI_YELLOW + "║" +"║"+
+                ANSI_PURPLE + "\t4  URUN RAFA KOY " + ANSI_YELLOW + "  ║");
+        System.out.println("╚════════════════════╝" + "╚════════════════════╝");
+        System.out.println(ANSI_YELLOW + "╔════════════════════╗"+"╔════════════════════╗");
+        System.out.println("║" + ANSI_PURPLE + "\t5 URUN CIKISI YAP" + ANSI_YELLOW + "║" +"║"+
+                ANSI_PURPLE + "\t6     CIKIS      " + ANSI_YELLOW + "  ║");
+        System.out.println("╚════════════════════╝" + "╚════════════════════╝");
+        System.out.print(ANSI_PURPLE + "Bir seçenek girin (1-6):" + ANSI_RESET);
     }
 
 
-    public static void main(String[] args) throws InterruptedException {
+
+
+
+    public static void main(String[] args) {
 
         Service service = new Service();
 
@@ -39,7 +45,7 @@ public class Runner {
         do {
             anaMenu();
 
-            int sec = service.intHataliGiris();
+            int sec = service.intHataliGiris(); //Switch'te int  disinda bir deger girilirse try catch kullandik.
 
 
             switch (sec) {

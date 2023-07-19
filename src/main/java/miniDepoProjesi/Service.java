@@ -4,15 +4,16 @@ import java.util.*;
 
 public class Service extends Urun {
 
-
+    //Hashmap'te key olarak String value olarak da pojo classimizdaki constructordan olusturdugumuz urun data type'i yazildi
+    //Key normalde UUID ama String manip. yapmak icin String atayip ilk 5 character aldik
     Scanner input = new Scanner(System.in);
     HashMap<String, Urun> urunHm = new HashMap<>();
 
     public Service() {
 
     }
-
-    void urunTanimla() throws InterruptedException {
+    //Benzersiz ID icin Java UUID classindan Random methodunu kullandik. Default 32 karakter bunu 5 karaktere substring yaptik
+    void urunTanimla() {
 
         UUID uuid = UUID.randomUUID();
         String id = uuid.toString().substring(0, 5).toUpperCase();
@@ -24,7 +25,6 @@ public class Service extends Urun {
         try {
             urunIsim = input.nextLine();
         } catch (InputMismatchException e) {
-            Thread.sleep(1000);
             System.err.println(ANSI_RED + "Hatali giris. Lutfen uygun deger giriniz" + ANSI_RESET);
 
         }
@@ -36,9 +36,8 @@ public class Service extends Urun {
 
 
         double miktar = 0;
-        if (urunVarMi(urunIsim, uretici, birim)) {       // buraada 40 dakika ugrastik siz de ugrsin :)
+        if (urunVarMi(urunIsim, uretici, birim)) {
             System.err.println("Girilen urun daha once tanimlanmis bir urundur. Tekrar giris yapiniz");
-            Thread.sleep(1000);
         } else {
             Urun urun = new Urun(urunIsim, uretici, miktar, birim, raf);
 
@@ -74,6 +73,7 @@ public class Service extends Urun {
         }
     }
 
+
     public void urunGir() {
         urunListele();
         System.out.println("Lutfen Miktarini girmek istediginiz urunun ID'sini giriniz");
@@ -89,6 +89,7 @@ public class Service extends Urun {
                     double yeniMiktar = mevcutMiktar + miktar;
                     urun.setMiktar(yeniMiktar);
                     System.out.printf(ANSI_GREEN + id + " numarali urun icin " + ANSI_RED + urun.getMiktar() + ANSI_RESET + " " + ANSI_GREEN + urun.getBirim() + " miktar  girilmistir" + ANSI_RESET);
+                    System.out.println();
                     break;
                 }
             }
@@ -99,8 +100,8 @@ public class Service extends Urun {
 
     }
 
-    public void urunuRafaKoy() throws InterruptedException {
 
+    public void urunuRafaKoy() {
         urunListele();
         System.out.println("Lutfen rafa yerlestirmek istediginiz urunun ID'sini giriniz");
         String id = input.nextLine().trim();
@@ -113,10 +114,8 @@ public class Service extends Urun {
                     if (urun.getMiktar() > 0) {
                         urun.setRaf(raf);
                         System.out.println("Urun " + urun.getRaf() + " rafina eklendi..");
-                        Thread.sleep(1000);
                     } else {
                         System.err.println("Stokta urun mevcut degil.");
-                        Thread.sleep(1000);
                     }
                 }
             }
@@ -126,7 +125,7 @@ public class Service extends Urun {
         }
     }
 
-    public void urunCikisiYap() throws InterruptedException {
+    public void urunCikisiYap(){
         urunListele();
         boolean sart = true;
         do {
@@ -145,7 +144,7 @@ public class Service extends Urun {
                         if (miktar <= urun.getMiktar()) {
                             double guncelMiktar = urun.getMiktar() - miktar;
                             urun.setMiktar(guncelMiktar);
-                            System.out.printf(ANSI_GREEN + "Depodan urun cikisi yapilmistir.\nGuncel miktar : " + ANSI_RED + urun.getMiktar() + ANSI_RESET + " " + urun.getBirim() + " bulunmaktadir." + ANSI_RESET);
+                            System.out.printf(ANSI_GREEN + "Depodan urun cikisi yapilmistir.\nGuncel miktar : " + ANSI_RED + urun.getMiktar() + ANSI_RESET + " " + urun.getBirim() + " bulunmaktadir.\n" + ANSI_RESET);
                             sart = false;
                             break;
                         } else {
@@ -207,6 +206,8 @@ public class Service extends Urun {
         }
     }
 
+    //switch-case butonunda int deger disinda bir deger girilirse hata mesaji verdirmek icin, return type int oldugu icin
+    //kullandigimiz yerde herhangi bir variable assign edebildik
     public int intHataliGiris() {
         boolean falseGir = false;
         int sec = 0;
@@ -236,6 +237,7 @@ public class Service extends Urun {
 
     }
 
+    //miktar tanimlarken numeric data disinda bir deger girilirse try catch yapildi
     public double doubleHataliGiris() {
         boolean falseGir = false;
         double sec = 0;
@@ -243,7 +245,7 @@ public class Service extends Urun {
 
             try {
                 sec = input.nextDouble();
-                input.nextLine();       //dummyCod
+                input.nextLine();       //dummyCod (string bir datadan sonra numeric bir data girince hata vermemesi icin)
                 if (sec < 0) {
                     System.err.println("Negatif deger girdiniz!!!");
 
@@ -254,13 +256,10 @@ public class Service extends Urun {
                 falseGir = true;
             } catch (InputMismatchException e) {
                 System.err.println("Yanlis deger girdiniz!!!");
-                System.out.printf(ANSI_GREEN + "Lutfen tekrar giris yapiniz..." + ANSI_RESET);
+                System.out.printf(ANSI_GREEN + "Lutfen tekrar giris yapiniz...\n" + ANSI_RESET);
 
                 input.nextLine();       //Girdi bufferini temizleme
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
-
 
         } while (!falseGir);
 
@@ -268,6 +267,7 @@ public class Service extends Urun {
 
     }
 
+    //Kullaniciya baslikta ve cikista gosterdigimiz mesaj
     public void message(String str) {
         System.out.println("\u001B[33m\n*******************************************\u001B[0m");
         System.out.printf("\u001B[36m*"); // Mavi renk
